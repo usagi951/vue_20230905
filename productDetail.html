@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九號同學請掃地</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mycss.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/all.min.css">
+
+    <style>
+        .modal_line {
+            position: relative;
+        }
+
+        .modal_line:before {
+            position: absolute;
+            content: "";
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            left: 100%;
+            background-color: black;
+        }
+
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        @media screen and (max-width:768px) {
+
+            .s05_text,
+            .s07_text {
+                background-color: rgba(0, 0, 0, 0.3);
+                color: white;
+            }
+
+            .s05_img {
+                right: 0px;
+            }
+        }
+
+        .s09_text {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .s302_text {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: aliceblue;
+            border-radius: 20px;
+        }
+
+        .timeline-section {
+            position: relative;
+        }
+
+        .timeline-section:before {
+            position: absolute;
+            content: "";
+            top: 0px;
+            bottom: 0px;
+            width: 1px;
+            background-color: white;
+            left: 50%;
+            transform: translateX(50%);
+        }
+    </style>
+</head>
+
+<body>
+     <!--s10 nav bar-->
+     <section id="s10" style="background-color: #818d96;">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-2">
+                    <a href="#">
+
+                        <img src="img/Group 47.png" style="height: 100px; width: 150px;" alt="">
+                    </a>
+                </div>
+                <div class="col-md-10 ">
+                    <div class="row" id="navbar1">
+                        <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark  d-none d-md-block">
+                            <div class="container-fluid ">
+                                <div class="collapse navbar-collapse ">
+                                    <ul class="navbar-nav mb-lg-0 ">
+
+                                        <li class="nav-item">
+                                            <a class="nav-link active" aria-current="page" href="onePage.html">首頁</a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a class="nav-link ms-3 d-none " aria-current="page" href="cart.html"
+                                                id="s20_cart_btn">
+                                                <i class="fa-solid fa-cart-shopping">購物車</i>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="record.html" class="nav-link ms-3 d-none "
+                                                id="s20_record_btn">
+                                                <i class="fa-solid fa-receipt">消費紀錄</i></a>
+                                        </li>
+                                        <li>
+                                            <a href="member.html" class="nav-link ms-3 d-none"
+                                                id="s20_member_btn"><i class="fa-solid fa-circle-user">個人資料</i></a>
+                                        </li>
+                                    </ul>
+                                   
+                                    <span>
+                                        <h2 id="login_message" class="text-light ms-1">
+
+                                        </h2>
+                                    </span>
+                                    <span><a href="#" id="logout" class="btn btn-danger d-none ms-1">登出</a></span>
+                                </div>
+
+                            </div>
+                        </nav>
+                    </div>
+        </div>
+    </section>
+    <!--s300 carousel幻燈片
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+
+                <div class="carousel-item active bg-cover bg-center"
+                    style="height: 800px; background-image: url(img/hamburger.jpg);">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>大俠漢堡，一</h5>
+                        <p>關於所在，驚人金幣高雄全新股份相當故事可以說台鐵，世界盃執。</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item  bg-cover bg-center"
+                    style="height: 800px; background-image: url(img/hamburger2.jpg);">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>大俠漢堡，二</h5>
+                        <p>幫你分公司一面心靈所說想法西方鑒定最大冠軍公開沉默，個人可。</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item  bg-cover bg-center"
+                    style="height: 800px; background-image: url(img/hamburger3.jpg);">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>大俠漢堡，三</h5>
+                        <p>如果您推薦使用實用豐原屏東室內對面走向來看法國有一種二手有。</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+        </div>
+    </section>
+    -->
+
+    <!--s400 商品詳細資訊-->
+    <section id="s400" class="mt-5">
+        <div class="container ">
+            <div class="row ">
+                <div class=" col-xl-6 " id="productImg" >
+                    <img src="img/cake2.jpg"  style=" height: 500px;" >
+                </div>
+                <div class=" col-xl-6 ">
+                    <div class="row">
+                        <h1 id="productName">★巧克力蛋糕★</h1>
+                    </div>
+                    <div class="row">
+                        <h3 id="productPrice">$1000</h3>
+                    </div>
+                    <div class="row" id="productDetail">
+                        日本設計，精緻小巧，適合送禮或自用。<br><br>
+                        典雅復古風設計，營造生活居家品味<br><br>
+                        煮、炊、煎、燒烤一機多役 <br> <br>
+                        1200W功率，火力可無段調節，可以從保溫至最高240°C進行微調<br><br>
+                        隨附3.5L平底鍋及0.5L內鍋，可用於多種用途，如聚會或日常餐桌<br><br>
+                        隨附章魚燒烤盤<br><br>
+                        隨附玻璃蓋，可隨時查看食材料理情<br><br>
+                        隨附原廠精緻食譜<br><br>
+                    </div>
+                    <div class="">
+                        <div class="row justify-content-start ">
+                            <div class="col-auto ">
+                                <h3>數量</h3>
+                            </div>
+                            <div class="col-auto ">
+                                <input type="number" class="form-control" value="1" id="p_num" min="1">
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <a href="#" class="btn btn-primary my-3" id="addCart">加入購物車</a>
+                            <a href="onePage.html" class="btn btn-danger">取消</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--s500 商品詳細資訊其他方式
+    <section id="s500" class="position-relative mt-3">
+        <div class="row ">
+            <div class="col-md-5 position-absolute s05_img top-0 bottom-0  bg-cover bg-center"
+                style=" background-image: url(img/product/perfume/perfume02.jpg);z-index: -1;">
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-end s05_text">
+                <div class="col-md-7">
+                    <div class="row">
+                        <h1 id="productName">★巧克力蛋糕★</h1>
+                    </div>
+                    <div class="row">
+                        <h3 id="productPrice">$1000</h3>
+                    </div>
+                    <div class="row" id="productDetail">
+                        日本設計，精緻小巧，適合送禮或自用。<br><br>
+                        典雅復古風設計，營造生活居家品味<br><br>
+                        煮、炊、煎、燒烤一機多役 <br> <br>
+                        1200W功率，火力可無段調節，可以從保溫至最高240°C進行微調<br><br>
+                        隨附3.5L平底鍋及0.5L內鍋，可用於多種用途，如聚會或日常餐桌<br><br>
+                        隨附章魚燒烤盤<br><br>
+                        隨附玻璃蓋，可隨時查看食材料理情<br><br>
+                        隨附原廠精緻食譜<br><br>
+                    </div>
+                    <div class="">
+                        <div class="row justify-content-start ">
+                            <div class="col-auto ">
+                                <h3>數量</h3>
+                            </div>
+                            <div class="col-auto ">
+                                <input type="number" class="form-control" value="1" id="p_num">
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <a href="#" class="btn btn-primary my-3" id="addCart">加入購物車</a>
+                            <a href="onePage.html" class="btn btn-danger">取消</a>
+                        </div>
+                    </div>
+
+                 
+                </div>
+            </div>
+        </div>
+
+    </section>
+-->
+
+
+
+
+
+
+
+    <!--s1000 版權宣告+友站連結-->
+    <section id="s1000" class="fixed-bottom text-bg-dark">
+        <div class="container">
+            <ul class="nav justify-content-around">
+                <li class="nav-item">
+                    <a class="nav-link disabled">雲端班範例</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">友站1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">友站2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">友站3</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!--login menu--->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">會員登入</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="mb-3">
+                            <label for="" class="form-label" id="userName" name="userName">帳號</label>
+                            <input type="text" class="form-control" placeholder="請輸入帳號">
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label" id="password" name="password">密碼</label>
+                            <input type="text" class="form-control" placeholder="請輸入密碼">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <!--註冊連結-->
+                    <a href="" class="btn btn-primary me-auto" data-bs-toggle="modal"
+                        data-bs-target="#applyModal">註冊</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">登入</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+    <script>
+        var member_id;
+        var product_id;
+        var name;
+        var price;
+        var level;
+        $(function () {
+            //登入監聽
+            //確認cookie是否有uid
+            if (getCookie('uid01') != "") {
+                //傳至後端確認是否合法
+ 
+                $.ajax({
+                    type: "POST",
+                    url: "api/check_uid_api.php",
+                    dataType: "json",
+                    data: { uid: getCookie('uid01') },
+                    success: showdata_check_uid,
+                    error: function () {
+                        alert("error-api/check_uid_api.php")
+                    },
+
+                });
+            }
+            var urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has("id")) {
+                product_id = urlParams.get("id");
+       
+                $.ajax({
+                    type: "post",
+                    url: "api/productDetail_r_api.php",
+                    dataType: "json",
+                    data: { id: product_id },
+                    success: function (data) {
+      
+                  
+                        var img='product/' + data.data.Img;
+                        name = data.data.Name;
+                        price = data.data.Price;
+                        if (level == 'S') {
+                            price = data.data.Price * 0.1;
+                        }
+                        if (level == 'A') {
+                            price = data.data.Price * 0.5;
+                        }
+                        if (level == 'B') {
+                            price = data.data.Price * 0.7;
+                        }
+                        $("#productImg").empty();
+                        $("#productName").empty();
+                        $("#productPrice").empty();
+
+                        $("#productImg").html('<img style=" height: 500px;" src="img/' + img + '" >');
+                        $("#productName").text('★' + name + '★');
+                        $("#productPrice").text('$' + price);
+                    },
+                    error: function () {
+                        alert("error-api/productDetail_r_api.php")
+                    }
+                });
+            };
+        });
+        $("#addCart").click(function () {
+            $.ajax({
+                type: "post",
+                url: "api/cart_insert_api.php",
+                dataType: "json",
+                data: {
+                    name: name,
+                    price: price,
+                    num: $("#p_num").val(),
+                    member_id: member_id,
+                    pay: "N",
+                    product_id: product_id,
+                },
+                success: function (data) {
+                    if (data.state) {
+                        alert(data.message);
+                    }
+                },
+                error: function () {
+                    alert("error-api/cart_insert_api.php")
+                }
+            });
+        })
+        function showdata_check_uid(data) {
+    
+            member_id = data.data.ID;
+            level=data.data.Level;
+            if (data.state) {
+                //1. 登入 s20_login_btn 按鈕隱藏
+                //2. 註冊 s20_register_btn 按鈕隱藏
+                //3. 顯示 後台管理 按鈕(可連結至control panel)
+                $("#s20_login_btn").addClass('d-none');
+                $("#s20_register_btn").addClass('d-none');
+                $("#s20_control_btn").removeClass('d-none');
+                $("#s20_member_btn").removeClass('d-none');
+                $("#s20_upload_img").removeClass("d-none");
+                $("#s20_cart_btn").removeClass('d-none');
+                $("#s20_record_btn").removeClass('d-none');
+
+                //重整時，確認等級
+   
+                if (level == 'S') {
+                    //歡迎詞
+                    //$("#login_message").text('歡迎' +level+ data.data.Username);
+                    $("#login_message").html('<i class="fa-solid fa-medal golden"></i>' + '歡迎' + data.data.Username);
+                } else if (level== 'A') {
+                    //歡迎詞
+                    //$("#login_message").text('歡迎' +level+ data.data.Username);
+                    $("#login_message").html('<i class="fa-solid fa-medal silver"></i>' + '歡迎' + data.data.Username);
+                } else if (level == 'B') {
+                    //歡迎詞
+                    //$("#login_message").text('歡迎' +level+ data.data.Username);
+                    $("#login_message").html('<i class="fa-solid fa-medal bronze"></i>' + '歡迎' + data.data.Username);
+                }else{
+                    //歡迎詞
+                    //$("#login_message").text('歡迎' +level+ data.data.Username);
+                    $("#login_message").html('<i class="fa-solid fa-medal hood"></i>' + '歡迎' + data.data.Username);
+                    }
+
+                //歡迎詞
+                $("#logout").removeClass("d-none");
+
+
+            } else {
+                $("#loginModal").modal("show");
+            }
+        };
+        $("#logout").click(function () {
+            alert("已登出");
+            setCookie("uid01", " ", 7);
+            location.href = "onePage.html";
+        });
+
+        //import w3
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+    </script>
+
+</body>
+
+</html>

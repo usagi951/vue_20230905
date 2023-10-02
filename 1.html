@@ -1,0 +1,23 @@
+<!-- 添加商品到購物車並導向到購物車頁面 -->
+<button onclick="addToCartAndRedirect('商品 1', 10)">添加到購物車</button>
+
+<script>
+    // 函數用於將商品添加到購物車並導向到購物車頁面
+    function addToCartAndRedirect(productName, price) {
+        var cart = [];
+        var urlParams = new URLSearchParams(window.location.search);
+        
+        // 檢查是否有 URL 參數 cartData
+        if (urlParams.has("cartData")) {
+            cart = JSON.parse(urlParams.get("cartData"));
+        }
+        
+        // 添加商品到購物車
+        cart.push({ name: productName, price: price });
+        
+        // 將購物車內容作為 URL 參數附加到 cart.html 上
+        var cartData = JSON.stringify(cart);
+        window.location.href = "2.html?cartData=" + encodeURIComponent(cartData);
+    }
+</script>
+

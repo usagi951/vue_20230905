@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mycss.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/all.min.css">
+
+    <title>新增商品頁面</title>
+    <Style>
+        .box {
+            height: 50px;
+            width: 50px;
+            display: inline-block;
+        }
+
+        .demo {
+            background-color: aquamarine;
+        }
+
+        .box2 {
+            height: 50px;
+            width: 50px;
+            display: inline-block;
+            background-color: #000;
+        }
+
+        .demo2 {
+            width: 300px;
+            height: 250px;
+            border: 1px solid #000;
+        }
+    </Style>
+</head>
+
+<body>
+
+    <div class="container">
+        <ul class="nav mt-3">
+            <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="product_control_panel.html">產品列表</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">產品新增</a>
+            </li>
+        </ul>
+        <div class="row justify-content-center mt-5">
+            <h1>產品新增</h1>
+            <img src="https://fakeimg.pl/300x200/200" alt="" class="d-none my-3 w-50" id="showimg">
+        </div>
+
+        <div class="row justify-content-center my-3 ">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <div class="row justify-content-end">
+                            <div class="col-auto pe-4">
+                                <label for="">產品圖片</label>
+                            </div>
+
+                            <div class="col-4"><input type="file" name="fileupload" id="fileupload"
+                                    class="form-control">
+                                <img src="#" alt="" class="d-none my-3 w-50" id="showimg">
+                            </div>
+
+                            <div class="col-3"><a href="#" class="btn btn-primary" id="upload_btn">確定</a></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row justify-content-center my-3">
+                    <div class="col-auto">
+                        <label for="">產品名稱</label>
+                    </div>
+                    <div class="col-auto ">
+                        <input type="text" class="form-control" placeholder="產品名稱" id="name" name="name">
+                    </div>
+                </div>
+
+                <div class="row justify-content-center my-3">
+                    <div class="col-auto">
+                        <label for="">產品價格</label>
+                    </div>
+                    <div class="col-auto ">
+                        <input type="number" class="form-control" placeholder="產品價格" id="price" name="price">
+                        <div class="valid-feedback">正確</div>
+                        <div class="invalid-feedback">錯誤</div>
+                    </div>
+                </div>
+
+
+                <div class="row justify-content-center my-3">
+                    <div class="col-auto">
+                        <label for="type">產品種類</label>
+                    </div>
+                    <div class="col-auto d-flex align-items-center">
+                        <select class="form-select" name="type" id="type">
+                            <option id="bag" value="bag">包包</option>
+                            <option id="perfume" value="perfume">香水</option>
+                            <option id="jewelry" value="jewelry">首飾</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center my-3">
+                    <div class="col-auto d-flex align-items-center">
+                        <button id="product_update_btn" class="btn btn-primary col-auto">上傳產品資料</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+
+    <script>
+        //檔案上傳有問題!!!!
+        $(function () {
+            $("#fileupload").change(function () {
+
+                console.log(fileupload);//該標籤的id
+                console.log(fileupload.files[0]);
+                console.log(fileupload.files[0].name);
+                console.log(fileupload.files[0].type);
+                console.log(URL.createObjectURL(fileupload.files[0]));
+                if (fileupload.files[0].type == 'image/jpeg' || fileupload.files[0].type == 'image/png') {
+                    $("#showimg").removeClass('d-none');
+                    $("#showimg").attr('src', URL.createObjectURL(fileupload.files[0]));
+                } else {
+                    alert("僅支援jpg or png");
+                    $("#showimg").empty();
+                }
+            });
+            //觸發監聽
+            $("#upload_btn").click(function () {
+                uploadFile();
+            });
+        });
+
+        function uploadFile() {
+            console.log(fileupload);
+            console.log(fileupload.files[0]);
+
+            //轉換格式 符合$_FILE需求；利用FormData()
+            var formData = new FormData();
+            formData.append('file', fileupload.files[0]);
+            console.log(formData);
+
+            //將收集完成的資料formData 傳遞至api
+            $.ajax({
+                type: "POST",
+                url: "img_u_api.php",
+                data: formData,
+                dataType: "json",
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: showdata_uploadFile,
+                error: function () {
+                    alert("error-img_u_api.php");
+                }
+            });
+            //cache、contentType、processData傳遞檔案的參數，皆為false
+        }
+        //變更會員資料更新按鈕監聽
+        $("#product_update_btn").click(function () {
+
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "api/product_update.php",
+                data: {
+                    name: $("#name").val(),
+                    price: $("#price").val(),
+                    type: $("#type").val(),
+                },
+                success: showdata,
+                error: function () {
+                    alert("產品更新失敗");
+                },
+            })
+
+        })
+
+
+        function showdata_uploadFile(data) {
+            console.log(data);
+        }
+
+        function showdata(data) {
+            console.log(data);
+            alert(data.message);
+            href = "#";
+        }
+
+        //import w3
+        // function setCookie(cname, cvalue, exdays) {
+        //     const d = new Date();
+        //     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        //     let expires = "expires=" + d.toUTCString();
+        //     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        // }
+        // function getCookie(cname) {
+        //     let name = cname + "=";
+        //     let decodedCookie = decodeURIComponent(document.cookie);
+        //     let ca = decodedCookie.split(';');
+        //     for (let i = 0; i < ca.length; i++) {
+        //         let c = ca[i];
+        //         while (c.charAt(0) == ' ') {
+        //             c = c.substring(1);
+        //         }
+        //         if (c.indexOf(name) == 0) {
+        //             return c.substring(name.length, c.length);
+        //         }
+        //     }
+        //     return "";
+        // }
+
+
+    </script>
+</body>
+
+</html>

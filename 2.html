@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>購物車示例</title>
+</head>
+<body>
+    <h1>我的購物車</h1>
+
+    <!-- 購物車內容 -->
+    <h2>購物車內容</h2>
+    <ul id="cart">
+        <!-- 購物車內容將在這裡動態添加 -->
+    </ul>
+
+    <!-- 總價格 -->
+    <h3>總價格: $<span id="total-price">0</span></h3>
+
+    <script>
+        // 函數用於更新購物車內容和總價格
+        function updateCart() {
+            var cartList = document.getElementById("cart");
+            var totalPriceElement = document.getElementById("total-price");
+            var totalPrice = 0;
+
+            // 清空購物車列表
+            cartList.innerHTML = "";
+
+            // 檢查是否有 URL 參數 cartData
+            var urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has("cartData")) {
+                var cartData = JSON.parse(urlParams.get("cartData"));
+
+                // 遍歷購物車中的每個商品
+                for (var i = 0; i < cartData.length; i++) {
+                    var item = cartData[i];
+                    var listItem = document.createElement("li");
+                    listItem.textContent = item.name + " - $" + item.price;
+                    cartList.appendChild(listItem);
+                    totalPrice += item.price;
+                }
+            }
+
+            // 更新總價格
+            totalPriceElement.textContent = totalPrice;
+        }
+
+        // 頁面加載時更新購物車內容
+        window.onload = updateCart;
+    </script>
+</body>
+</html>

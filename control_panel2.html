@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員管理</title>
+</head>
+
+<body>
+    <h2 id="login_message"></h2>
+    <a href="" id="logout" class="btn btn-danger">登出</a>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>
+        $(function () {
+            //確認cookie是否有uid
+            if (getCookie('uid01') != "") {
+                //傳至後端確認是否合法
+                console.log(getCookie('uid01'));
+
+                $.ajax({
+                    type: "POST",
+                    url: "api/check_uid_api.php",
+                    dataType: "json",
+                    data: { uid: getCookie('uid01') },
+                    success: showdata_check_uid,
+                    error: function () {
+                        alert("error-api/check_uid_api.php")
+                    },
+
+                });
+            } else {
+                location.href = "onePage.html";
+            }
+            $("#logout").click(function(){
+                alert("已登出");
+                location.href="onePage.html";
+                setCookie("uid01", " ", 7);
+            });
+        });
+        function showdata_check_uid (data){
+            if(data.state){
+                $("#login_message").html("歡迎"+data.data.Username);
+            }else{
+                alert("請先登入");
+                location.href="onePage.html"
+            }
+        };
+
+        //import w3
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+    </script>
+</body>
+
+</html>

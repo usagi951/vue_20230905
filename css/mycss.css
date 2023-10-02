@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+:root {
+    --mycolor1: #B9E397;
+    --mycolor2: #224C00;
+    --mycolor3: #609732;
+    --mycolor4: #82BBB5;
+    --mycolor5: #407F7F;
+    --mycolor6: #407F7F;
+    --mycolor7: #FFE2AA;
+    --mycolor8: #CA884B;
+    --mycolor9: #CCA142;
+}
+.demo{
+    /* border: 5px solid rgb(0, 102, 143); */
+    margin: 15px;
+    padding: 15px;
+    text-align: center;
+    background: linear-gradient(120deg,rgba(255, 255, 255, 0.479), rgba(83, 82, 82, 0.329));
+    height: 400px;
+    width: 400px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(50px);
+    
+    
+}
+.demo02{
+    background-image: url(/img/bg6.jpg);
+    height: 350px;
+    width: 350px;
+    border-radius: 30px;
+}
+.body{
+    font-family: 'Noto Sans TC',sans-serif;
+}
+.fw-100{
+    font-weight: 100;
+}
+.fw-300{
+    font-weight: 300;
+}
+.fw-400{
+    font-weight: 400;
+}
+.fw-500{
+    font-weight: 500;
+}
+.fw-700{
+    font-weight: 700;
+}
+.fw-900{
+    font-weight: 900;
+}
+.box01{
+    height: 200px;
+    padding: 10px;
+    margin:15px;
+    border: 2px solid #224C00;
+}
+.box02{
+    height: 120px;
+    border: 2px solid #CA884B;
+}
+.bg-cover{
+    background-size:cover ;
+}
+.bg-center{
+    background-position: center center;
+}
+.footer{
+    background-color: #CA884B;
+    height:100px;
+    text-align: center;
+    color: white;
+    line-height: 100px;
+}
+/*電商平台 等級配色*/
+.golden{
+    color: #FFD700;
+}
+.silver{
+    color:#C0C0C0;
+    
+}
+.bronze{
+    color:#B87333;
+}
+.hood{
+    color:#90B44B; 
+}

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>購物車</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mycss.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/all.min.css">
+
+    <style>
+        .modal_line {
+            position: relative;
+        }
+
+        .modal_line:before {
+            position: absolute;
+            content: "";
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            left: 100%;
+            background-color: black;
+        }
+
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        @media screen and (max-width:768px) {
+
+            .s05_text,
+            .s07_text {
+                background-color: rgba(0, 0, 0, 0.3);
+                color: white;
+            }
+
+            .s05_img {
+                right: 0px;
+            }
+        }
+
+        .s09_text {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .s302_text {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: aliceblue;
+            border-radius: 20px;
+        }
+
+        .timeline-section {
+            position: relative;
+        }
+
+        .timeline-section:before {
+            position: absolute;
+            content: "";
+            top: 0px;
+            bottom: 0px;
+            width: 1px;
+            background-color: white;
+            left: 50%;
+            transform: translateX(50%);
+        }
+    </style>
+</head>
+
+<body>
+  <!--s10 nav bar-->
+  <section id="s10" style="background-color: #818d96;">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-2">
+                <a href="#">
+
+                    <img src="img/Group 47.png" style="height: 100px; width: 150px;" alt="">
+                </a>
+            </div>
+            <div class="col-md-10 ">
+                <div class="row" id="navbar1">
+                    <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark  d-none d-md-block">
+                        <div class="container-fluid ">
+                            <div class="collapse navbar-collapse ">
+                                <ul class="navbar-nav mb-lg-0 ">
+
+                                    <li class="nav-item">
+                                        <a class="nav-link " aria-current="page" href="onePage.html">首頁</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link ms-3 d-none " aria-current="page" href="cart.html"
+                                            id="s20_cart_btn">
+                                            <i class="fa-solid fa-cart-shopping">購物車</i>
+                                        </a>
+                                    </li>
+    
+                                    <li class="nav-item">
+                                        <a href="record.html" class="nav-link ms-3 d-none active"
+                                            id="s20_record_btn">
+                                            <i class="fa-solid fa-receipt">消費紀錄</i></a>
+                                    </li>
+
+                                    <li>
+                                        <a href="member.html" class="nav-link ms-3 d-none"
+                                            id="s20_member_btn"><i class="fa-solid fa-circle-user">個人資料</i></a>
+                                    </li>
+                                </ul>
+                                <span>
+                                    <h2 id="login_message" class="text-light ms-1">
+
+                                    </h2>
+                                </span>
+                                <span><a href="#" id="logout" class="btn btn-danger d-none ms-1">登出</a></span>
+                            </div>
+
+                        </div>
+                    </nav>
+                </div>
+    </div>
+</section>
+    <!--s300 carousel幻燈片
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+
+                <div class="carousel-item active bg-cover bg-center"
+                    style="height: 800px; background-image: url(img/hamburger.jpg);">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>大俠漢堡，一</h5>
+                        <p>關於所在，驚人金幣高雄全新股份相當故事可以說台鐵，世界盃執。</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item  bg-cover bg-center"
+                    style="height: 800px; background-image: url(img/hamburger2.jpg);">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>大俠漢堡，二</h5>
+                        <p>幫你分公司一面心靈所說想法西方鑒定最大冠軍公開沉默，個人可。</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item  bg-cover bg-center"
+                    style="height: 800px; background-image: url(img/hamburger3.jpg);">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>大俠漢堡，三</h5>
+                        <p>如果您推薦使用實用豐原屏東室內對面走向來看法國有一種二手有。</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+        </div>
+    </section>
+    -->
+
+
+    <!--消費紀錄-->
+    <section id="s400"></section>
+    <div class="container my-5">
+        <table class="table table-striped table-hover table-sm table-bordered border-secondary table-rwd">
+            <thead class="text-bg-dark">
+                <tr>
+                    <th>商品序號</th>
+                    <th>商品名稱</th>
+                    <th>購買價格</th>
+                    <th>數量</th>
+                    <th>消費時間</th>
+                </tr>
+            </thead>
+            <tbody id="record" class="d-none">
+                <tr>
+                    <td data-th="商品序號"><span class="table-col">001</span></td>
+                    <td data-th="商品名稱"><span class="table-col">XXX</span></td>
+                    <td data-th="購買價格"><span class="table-col">1000</span></td>
+                    <td data-th="數量"><span class="table-col">1000</span></td>
+                    <td data-th="消費時間"><span class="table-col">2023-09-08 00:00:00</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row text-end">
+            <h3 class="" id="total"></h3>
+        </div>
+    </div>
+    <!--s1000 版權宣告+友站連結-->
+    <section id="s1000" class="fixed-bottom text-bg-dark">
+        <div class="container">
+            <ul class="nav justify-content-around">
+                <li class="nav-item">
+                    <a class="nav-link disabled">雲端班範例</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">友站1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">友站2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">友站3</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!--login menu--->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">會員登入</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="mb-3">
+                            <label for="" class="form-label" id="userName" name="userName">帳號</label>
+                            <input type="text" class="form-control" placeholder="請輸入帳號">
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label" id="password" name="password">密碼</label>
+                            <input type="text" class="form-control" placeholder="請輸入密碼">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <!--註冊連結-->
+                    <a href="" class="btn btn-primary me-auto" data-bs-toggle="modal"
+                        data-bs-target="#applyModal">註冊</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">登入</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+    <script>
+        var member_id;
+        var product_id;
+        var name;
+        var price;
+        var total = 0;
+        var level;
+        $(function () {
+            //登入監聽
+            //確認cookie是否有uid
+            if (getCookie('uid01') != "") {
+                //傳至後端確認是否合法
+
+                $.ajax({
+                    type: "POST",
+                    url: "api/check_uid_api.php",
+                    dataType: "json",
+                    async: false,
+                    data: { uid: getCookie('uid01') },
+                    success: showdata_check_uid,
+                    error: function () {
+                        alert("error-api/check_uid_api.php")
+                    },
+
+                });
+            } else {
+                alert("請先登入會員");
+                location.href = "onePage.html";
+            }
+        });
+
+        function showdata_check_uid(data) {
+   
+            member_id = data.data.ID;
+            level=data.data.Level;
+            if (data.state) {
+                //1. 登入 s20_login_btn 按鈕隱藏
+                //2. 註冊 s20_register_btn 按鈕隱藏
+                //3. 顯示 後台管理 按鈕(可連結至control panel)
+                $("#s20_login_btn").addClass('d-none');
+                $("#s20_register_btn").addClass('d-none');
+                $("#s20_control_btn").removeClass('d-none');
+                $("#s20_member_btn").removeClass('d-none');
+                $("#s20_upload_img").removeClass("d-none");
+                $("#s20_cart_btn").removeClass('d-none');
+                $("#s20_record_btn").removeClass('d-none');
+                
+                //確認等級
+                if (level == 'S') {
+                    //歡迎詞
+                    //$("#login_message").text('歡迎' +level+ data.data.Username);
+                    $("#login_message").html('<i class="fa-solid fa-medal golden"></i>' + '歡迎' + data.data.Nickname);
+     
+                } else if (level == 'A') {
+                    //歡迎詞
+                    //$("#login_message").text('歡迎' +level+ data.data.Username);
+                    $("#login_message").html('<i class="fa-solid fa-medal silver"></i>' + '歡迎' + data.data.Nickname);
+
+                } else if (level == 'B') {
+                    //歡迎詞
+                    //$("#login_message").text('歡迎' +level+ data.data.Username);
+                    $("#login_message").html('<i class="fa-solid fa-medal bronze"></i>' + '歡迎' + data.data.Nickname);
+
+                } else {
+                    //歡迎詞
+                    //$("#login_message").text('歡迎' +level+ data.data.Username);
+                    $("#login_message").html('<i class="fa-solid fa-medal hood"></i>' + '歡迎' + data.data.Nickname);
+                }
+                //歡迎詞
+                //$("#login_message").text("歡迎" + data.data.Username + "回來");
+                $("#logout").removeClass("d-none");
+
+
+                //渲染消費紀錄
+                $.ajax({
+                    type: "POST",
+                    url: "api/record_r_api.php",
+                    dataType: "json",
+                    data: { member_id: member_id },
+                    success: function (data) {
+         
+                        
+                        $("#record").empty();
+                        if (data.state) {
+                            for (i = 0; i < data.data.length; i++) {
+                                var str = '<tr><td data-th="商品序號"><span class="table-col">'+data.data[i].Product_id
++'</span></td><td data-th="商品名稱"><span class="table-col">'+data.data[i].Name+'</span></td><td data-th="購買價格"><span class="table-col">'+data.data[i].Price+'</span></td><td data-th="數量"><span class="table-col">'+data.data[i].Num+'</span></td><td data-th="消費時間"><span class="table-col">'+data.data[i].Create_at
++'</span></td></tr>';
+                                $("#record").append(str);
+
+                                total += parseInt(data.data[i].Price * data.data[i].Num);
+                       
+                            };
+                            $("#total").text('累計消費:$' + total);
+                            $("#record").removeClass("d-none");
+                        } else {
+                            var str = '<tr><td colspan="5" class="text-center">尚無紀錄</td></tr>';
+                            $("#record").append(str);
+                        }
+
+                    },
+                    error: function () {
+                        alert("error-api/cart_r_api.php")
+                    },
+
+                });
+
+
+
+            } else {
+                $("#loginModal").modal("show");
+            }
+        };
+        $("#logout").click(function () {
+            alert("已登出");
+            setCookie("uid01", " ", 7);
+            location.href = "onePage.html";
+        });
+        /*
+        $.ajax({
+                            type: "POST",
+                            url: "api/total_u_api.php",
+                            dataType: "json",
+                            data: {
+                                member_id:member_id, 
+                                total: total },
+                            success: function (data) {
+                                alert("累計消費:"+data.data);
+
+                                location.href = "cart.html";
+                            },
+                            error: function () {
+                                alert("error-api/cart_u_api.php");
+                            }
+                        })*/
+        //import w3
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+    </script>
+
+</body>
+
+</html>
